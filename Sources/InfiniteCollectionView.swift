@@ -152,7 +152,7 @@ private extension InfiniteCollectionView {
         infiniteDelegate?.scrollView?(scrollView, pageIndex: pageIndex)
     }
     func correctedIndex(_ indexToCorrect: Int) -> Int {
-        guard let numberOfItems = infiniteDataSource?.number(ofItems: self) else { return 0 }
+        guard let numberOfItems = infiniteDataSource?.number(ofItems: self), numberOfItems > 0 else { return 0 }
         if numberOfItems > indexToCorrect && indexToCorrect >= 0 {
             return indexToCorrect
         }
